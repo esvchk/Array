@@ -4,6 +4,7 @@ import com.academy.course.entity.AbstractArray;
 import com.academy.course.utils.Const;
 
 public abstract class ArrayFactory<T> {
+
     public abstract AbstractArray<T> create(int capacity);
 
     public AbstractArray<T> fill (T[] values){
