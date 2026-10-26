@@ -1,4 +1,25 @@
 package com.academy.course.entity;
 
-public abstract class AbstractArray {
+public abstract class AbstractArray<T> {
+
+    protected int size;
+
+    public abstract T get(int index);
+    public abstract void add(T t);
+
+
+    public int getSize() {
+        return size;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractArray{" +
+                "size=" + size +
+                '}';
+    }
 }
