@@ -6,7 +6,7 @@ public class CharsValidator implements Validator {
 
     @Override
     public void validate(String line, ValidationResult result) {
-        if (!Constants.ALLOWED_CHARS.matches(line)) {
+        if (!line.matches(Constants.ALLOWED_CHARS)) {
             result.addError("Line contains banned chars");
         }
     }
