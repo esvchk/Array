@@ -18,7 +18,7 @@ public class ArrayFileReaderImpl implements ArrayFileReader{
         List<String> stringList = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File(path))){
             while (scanner.hasNextLine()){
-                String part = scanner.next();
+                String part = scanner.nextLine();
                 stringList.add(part);
             }
         } catch (FileNotFoundException e) {

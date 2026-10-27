@@ -1,6 +1,6 @@
 package com.academy.course.entity;
 
-import com.academy.course.utils.Const;
+import com.academy.course.utils.Constants;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ public class GenericArray<T> extends AbstractArray<T>{
 
 
     public GenericArray() {
-        this(Const.DEFAULT_ARRAY_CAPACITY);
+        this(Constants.DEFAULT_ARRAY_CAPACITY);
     }
 
     public GenericArray(int capacity) {
