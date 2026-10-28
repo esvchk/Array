@@ -1,9 +1,10 @@
-package com.academy.course.validator;
+package com.academy.course.validator.validatorImpl;
 
 import com.academy.course.utils.Constants;
+import com.academy.course.validator.Validator;
 
 
-public class NumberCharValidator implements Validator{
+public class NumberCharValidator implements Validator {
     @Override
     public void validate(String line, ValidationResult result) {
         String[] chars = line.trim().split(Constants.SEPARATOR);

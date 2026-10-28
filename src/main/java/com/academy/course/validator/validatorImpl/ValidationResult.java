@@ -1,4 +1,4 @@
-package com.academy.course.validator;
+package com.academy.course.validator.validatorImpl;
 
 import java.util.ArrayList;
 import java.util.List;

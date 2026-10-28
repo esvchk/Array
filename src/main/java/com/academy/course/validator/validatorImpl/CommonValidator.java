@@ -1,9 +1,13 @@
-package com.academy.course.validator;
+package com.academy.course.validator.validatorImpl;
+
+import com.academy.course.validator.Validator;
+import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommonValidator {
+
     private final CharRefactor charRefactor = new CharRefactor();
     private final List<Validator> sourceValidators = new ArrayList<>();
     private final List<Validator> newLineValidators = new ArrayList<>();
@@ -21,7 +25,7 @@ public class CommonValidator {
 
         for (Validator v : sourceValidators) v.validate(line,validationResult);
 
-        String newLine = charRefactor.refactor(line);
+        String newLine = charRefactor.rebuildLine(line);
 
         for (Validator v : newLineValidators) v.validate(newLine,validationResult);
 

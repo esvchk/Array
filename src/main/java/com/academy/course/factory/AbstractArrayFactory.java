@@ -3,7 +3,7 @@ package com.academy.course.factory;
 import com.academy.course.entity.AbstractArray;
 import com.academy.course.utils.Constants;
 
-public abstract class ArrayFactory<T> {
+public abstract class AbstractArrayFactory<T> {
 
     public abstract AbstractArray<T> create(int capacity);
 

@@ -1,6 +1,7 @@
 package com.academy.course.utils;
 
 public class Constants {
+
     public static final int DEFAULT_ARRAY_CAPACITY = 10;
     public static final String ALLOWED_CHARS = "^[0-9\\s,;\\-\\u2013\\u2014]+$";
     public static final String ONE_NUMBER = "\\d";

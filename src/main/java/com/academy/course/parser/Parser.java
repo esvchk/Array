@@ -1,7 +1,8 @@
 package com.academy.course.parser;
 
-import com.academy.course.validator.CharRefactor;
+import com.academy.course.validator.charRefactor.Refactor;
+import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
 
 public interface Parser {
-    Integer[] parseToInt(String line, CharRefactor refactor);
+    Integer[] parseToInt(String line, Refactor refactor);
 }

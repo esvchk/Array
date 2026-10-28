@@ -1,6 +1,7 @@
-package com.academy.course.validator;
+package com.academy.course.validator.validatorImpl;
 
 import com.academy.course.utils.Constants;
+import com.academy.course.validator.Validator;
 
 public class CharsValidator implements Validator {
 

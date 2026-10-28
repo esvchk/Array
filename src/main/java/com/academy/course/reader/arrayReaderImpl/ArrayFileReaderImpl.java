@@ -1,4 +1,6 @@
-package com.academy.course.reader;
+package com.academy.course.reader.arrayReaderImpl;
+
+import com.academy.course.reader.ArrayFileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ArrayFileReaderImpl implements ArrayFileReader{
+public class ArrayFileReaderImpl implements ArrayFileReader {
 
     private final String path;
 

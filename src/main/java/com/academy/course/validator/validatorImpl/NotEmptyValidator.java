@@ -1,6 +1,8 @@
-package com.academy.course.validator;
+package com.academy.course.validator.validatorImpl;
 
-public class NotEmptyValidator implements Validator{
+import com.academy.course.validator.Validator;
+
+public class NotEmptyValidator implements Validator {
 
 
     @Override
