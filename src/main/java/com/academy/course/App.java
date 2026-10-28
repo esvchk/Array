@@ -9,11 +9,17 @@ import com.academy.course.parser.Parser;
 import com.academy.course.reader.ArrayFileReader;
 import com.academy.course.reader.arrayReaderImpl.ArrayFileReaderImpl;
 import com.academy.course.service.ArrayFillService;
+import com.academy.course.service.averageService.AverageService;
+import com.academy.course.service.averageService.averageServiceImpl.AverageServiceImpl;
 import com.academy.course.service.fillServiceImpl.ArrayFillServiceImpl;
+import com.academy.course.service.minMaxService.MinMaxService;
+import com.academy.course.service.minMaxService.minMaxServiceImpl.MinMaxServiceImpl;
+import com.academy.course.service.sumService.SumService;
+import com.academy.course.service.sumService.sumServiceImpl.SumServiceImpl;
 import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
 import com.academy.course.validator.validatorImpl.CommonValidator;
 
-import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -23,12 +29,18 @@ public class App {
         CharRefactor refactor = new CharRefactor();
         Parser parser = new IntParser();
         AbstractArrayFactory<Integer> factory = new GenericArrayFactory<>();
-        AbstractArray<Integer> arr;
         CommonValidator validator = new CommonValidator();
+        MinMaxService minMaxService = new MinMaxServiceImpl();
+        SumService sumService = new SumServiceImpl();
+        AverageService averageService = new AverageServiceImpl(sumService);
 
         ArrayFillService fillService = new ArrayFillServiceImpl(fileReader,validator,refactor,parser,factory);
-        List<AbstractArray> list = fillService.fillArray();
-        list.forEach(System.out::println);
+        List<AbstractArray<Integer>> list = fillService.fillIntArray();
+        for (AbstractArray array : list){
+            System.out.println(averageService.getAverage(array));
+        }
+//        list.forEach(System.out::println);
+
 
     }
 

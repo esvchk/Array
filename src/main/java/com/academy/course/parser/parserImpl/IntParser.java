@@ -9,7 +9,6 @@ import java.util.Arrays;
 
 public class IntParser implements Parser {
 
-
     @Override
     public Integer[] parseToInt(String line, Refactor refactor) {
         String newLine = refactor.rebuildLine(line).trim();

@@ -34,14 +34,14 @@ public class ArrayFillServiceImpl implements ArrayFillService {
 
 
     @Override
-    public List<AbstractArray> fillArray() {
-        List<AbstractArray> arraysList = new ArrayList<>();
+    public List<AbstractArray<Integer>> fillIntArray() {
+        List<AbstractArray<Integer>> arraysList = new ArrayList<>();
         for (String fileLine : reader.read()){
             if (validator.validationResult(fileLine).isValid()) {
-                AbstractArray array = factory.fill(parser.parseToInt(fileLine,refactor));
+                AbstractArray<Integer> array = factory.fill(parser.parseToInt(fileLine,refactor));
                 arraysList.add(array);
             } else {
-//                System.out.println(validator.validationResult(fileLine).getErrors());
+                System.out.println(validator.validationResult(fileLine).getErrors());
             }
         }
         return arraysList;
