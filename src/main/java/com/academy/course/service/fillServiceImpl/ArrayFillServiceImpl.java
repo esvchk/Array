@@ -1,8 +1,9 @@
 package com.academy.course.service.fillServiceImpl;
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.InvalidInputException;
 import com.academy.course.factory.AbstractArrayFactory;
-import com.academy.course.parser.Parser;
+import com.academy.course.parser.IntParser;
 import com.academy.course.reader.ArrayFileReader;
 import com.academy.course.service.ArrayFillService;
 import com.academy.course.validator.charRefactor.Refactor;
@@ -17,18 +18,18 @@ public class ArrayFillServiceImpl implements ArrayFillService {
     private final ArrayFileReader reader;
     private final CommonValidator validator;
     private final Refactor refactor;
-    private final Parser parser;
+    private final IntParser intParser;
     private final AbstractArrayFactory factory;
 
     public ArrayFillServiceImpl(ArrayFileReader reader,
                                 CommonValidator validator,
                                 Refactor refactor,
-                                Parser parser,
+                                IntParser intParser,
                                 AbstractArrayFactory factory) {
         this.reader = reader;
         this.validator = validator;
         this.refactor = refactor;
-        this.parser = parser;
+        this.intParser = intParser;
         this.factory = factory;
     }
 
@@ -38,10 +39,10 @@ public class ArrayFillServiceImpl implements ArrayFillService {
         List<AbstractArray<Integer>> arraysList = new ArrayList<>();
         for (String fileLine : reader.read()){
             if (validator.validationResult(fileLine).isValid()) {
-                AbstractArray<Integer> array = factory.fill(parser.parseToInt(fileLine,refactor));
+                AbstractArray<Integer> array = factory.fill(intParser.parseToInt(fileLine,refactor));
                 arraysList.add(array);
             } else {
-                System.out.println(validator.validationResult(fileLine).getErrors());
+                throw new InvalidInputException("Invalid data from " + fileLine);
             }
         }
         return arraysList;

@@ -25,7 +25,6 @@ public class ArrayFileReaderImpl implements ArrayFileReader {
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-            //custom exception
         }
         return stringList;
     }

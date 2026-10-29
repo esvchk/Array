@@ -21,6 +21,7 @@ public class CommonValidator {
 
     public ValidationResult validationResult(String line){
 
+
         ValidationResult validationResult = new ValidationResult();
 
         for (Validator v : sourceValidators) v.validate(line,validationResult);
