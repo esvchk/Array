@@ -8,7 +8,7 @@ public abstract class AbstractArrayFactory<T> {
     public abstract AbstractArray<T> create(int capacity);
 
     public AbstractArray<T> fill (T[] values){
-        AbstractArray<T> arr = create(Constants.DEFAULT_ARRAY_CAPACITY);
+        AbstractArray<T> arr = create(Math.max(values.length, Constants.DEFAULT_ARRAY_CAPACITY));
         for (T t : values) arr.add(t);
         return arr;
     }

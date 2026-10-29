@@ -19,9 +19,11 @@ import com.academy.course.service.sortService.sortServiceImpl.BubbleSortService;
 import com.academy.course.service.sortService.sortServiceImpl.QuickSortService;
 import com.academy.course.service.sumService.SumService;
 import com.academy.course.service.sumService.sumServiceImpl.SumServiceImpl;
+import com.academy.course.validator.Validator;
 import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
-import com.academy.course.validator.validatorImpl.CommonValidator;
+import com.academy.course.validator.validatorImpl.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,8 +33,14 @@ public class App {
         ArrayFileReader fileReader = new ArrayFileReaderImpl("D:\\courses\\project\\Array\\files\\data.txt");
         CharRefactor refactor = new CharRefactor();
         Parser parser = new IntParser();
+        List<Validator> sourceValidators = new ArrayList<>();
+        List<Validator> newLineValidators = new ArrayList<>();
         AbstractArrayFactory<Integer> factory = new GenericArrayFactory<>();
-        CommonValidator validator = new CommonValidator();
+        CommonValidator validator = new CommonValidator(refactor,sourceValidators,newLineValidators);
+        sourceValidators.add(new NotEmptyValidator());
+        sourceValidators.add(new CharsValidator());
+        newLineValidators.add(new DashValidator());
+        newLineValidators.add(new NumberCharValidator());
         MinMaxService minMaxService = new MinMaxServiceImpl();
         SumService sumService = new SumServiceImpl();
         AverageService averageService = new AverageServiceImpl(sumService);

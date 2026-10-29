@@ -16,14 +16,4 @@ public abstract class AbstractArray<T> {
         return size == 0;
     }
 
-
-
-
-
-    @Override
-    public String toString() {
-        return "AbstractArray{" +
-                "size=" + size +
-                '}';
-    }
 }
