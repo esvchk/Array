@@ -6,7 +6,7 @@ public abstract class AbstractArray<T> {
 
     public abstract T get(int index);
     public abstract void add(T t);
-
+    public abstract void set(int index,T value);
 
     public int getSize() {
         return size;
@@ -15,6 +15,10 @@ public abstract class AbstractArray<T> {
     public boolean isEmpty(){
         return size == 0;
     }
+
+
+
+
 
     @Override
     public String toString() {

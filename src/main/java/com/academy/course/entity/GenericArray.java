@@ -19,7 +19,6 @@ public class GenericArray<T> extends AbstractArray<T>{
         this.objArray = new Object[capacity];
     }
 
-
     @Override
     public T get(int index) {
         return (T)objArray[index];
@@ -29,6 +28,11 @@ public class GenericArray<T> extends AbstractArray<T>{
     @Override
     public void add(T value) {
         objArray[size++] = value;
+    }
+
+    @Override
+    public void set(int index, T value) {
+        objArray[index] = value;
     }
 
     @Override

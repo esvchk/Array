@@ -14,6 +14,9 @@ import com.academy.course.service.averageService.averageServiceImpl.AverageServi
 import com.academy.course.service.fillServiceImpl.ArrayFillServiceImpl;
 import com.academy.course.service.minMaxService.MinMaxService;
 import com.academy.course.service.minMaxService.minMaxServiceImpl.MinMaxServiceImpl;
+import com.academy.course.service.sortService.SortService;
+import com.academy.course.service.sortService.sortServiceImpl.BubbleSortService;
+import com.academy.course.service.sortService.sortServiceImpl.QuickSortService;
 import com.academy.course.service.sumService.SumService;
 import com.academy.course.service.sumService.sumServiceImpl.SumServiceImpl;
 import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
@@ -33,11 +36,14 @@ public class App {
         MinMaxService minMaxService = new MinMaxServiceImpl();
         SumService sumService = new SumServiceImpl();
         AverageService averageService = new AverageServiceImpl(sumService);
+        SortService service = new BubbleSortService();
+        SortService service1 = new QuickSortService();
 
         ArrayFillService fillService = new ArrayFillServiceImpl(fileReader,validator,refactor,parser,factory);
         List<AbstractArray<Integer>> list = fillService.fillIntArray();
-        for (AbstractArray array : list){
-            System.out.println(averageService.getAverage(array));
+        for (AbstractArray<Integer> array : list){
+            service1.sortIntArray(array);
+            System.out.println(array);
         }
 //        list.forEach(System.out::println);
 
