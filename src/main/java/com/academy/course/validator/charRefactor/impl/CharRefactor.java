@@ -5,10 +5,7 @@ import com.academy.course.validator.charRefactor.Refactor;
 
 public class CharRefactor implements Refactor {
 
-    public String rebuildLine(String line) throws ArrayException {
-        if (line == null || line.isBlank()) {
-            throw new ArrayException("Empty line");
-        }
+    public String rebuildLine(String line){
         String s = line.replace('–', '-').replace('—', '-');
         s = s.replaceAll(DASH_ENCLOSED_WHITESPACES,WHITESPACE);
         s = s.replaceAll(DASH_ENCLOSED_NUMBERS,WHITESPACE);

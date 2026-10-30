@@ -32,11 +32,11 @@ public class GenericArray<T> extends AbstractArray<T> {
 
     @Override
     public void add(T value) throws ArrayException {
-        if (size == capacity){
-            grow();
-        }
         if (value == null) {
             throw new ArrayException("Empty array " + value);
+        }
+        if (size == capacity){
+            grow();
         }
         objArray[size++] = value;
     }
