@@ -7,8 +7,8 @@ public class CharRefactor implements Refactor {
 
     public String rebuildLine(String line){
         String s = line.replace('–', '-').replace('—', '-');
-        s = s.replaceAll(Constants.DASH_ENCLOSED_WHITESPACES,Constants.WHITESPACE);
-        s = s.replaceAll(Constants.DASH_ENCLOSED_NUMBERS,Constants.WHITESPACE);
+        s = s.replaceAll(DASH_ENCLOSED_WHITESPACES,WHITESPACE);
+        s = s.replaceAll(DASH_ENCLOSED_NUMBERS,WHITESPACE);
         return s;
     }
 }

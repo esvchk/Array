@@ -1,4 +1,4 @@
-package com.academy.course.service.minMaxService.minMaxServiceImpl;
+package com.academy.course.service.minMaxService.impl;
 
 import com.academy.course.entity.AbstractArray;
 import com.academy.course.service.minMaxService.MinMaxService;

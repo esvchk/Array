@@ -1,11 +1,12 @@
 package com.academy.course.parser.parserImpl;
 
+import com.academy.course.parser.IntParser;
 import com.academy.course.utils.Constants;
 import com.academy.course.validator.charRefactor.Refactor;
 
 import java.util.Arrays;
 
-public class IntParserImpl implements com.academy.course.parser.IntParser {
+public class IntParserImpl implements IntParser {
 
     @Override
     public Integer[] parseToInt(String line, Refactor refactor) {

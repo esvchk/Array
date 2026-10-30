@@ -1,12 +1,13 @@
 package com.academy.course.entity;
 
+import com.academy.course.exception.EmptyArrayException;
 import com.academy.course.exception.WrongIndexException;
 import com.academy.course.utils.Constants;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class GenericArray<T> extends AbstractArray<T>{
+public class GenericArray<T> extends AbstractArray<T> {
 
     private Object[] objArray;
     private int capacity;
@@ -26,13 +27,18 @@ public class GenericArray<T> extends AbstractArray<T>{
         if (index < 0 || index >= size) {
             throw new WrongIndexException("index=" + index + ",size=" + size);
         }
-        return (T)objArray[index];
+        return (T) objArray[index];
     }
 
 
     @Override
     public void add(T value) {
-        if (size == capacity) grow();
+        if (size == capacity){
+            grow();
+        }
+        if (value == null) {
+            throw new EmptyArrayException("Empty array " + value);
+        }
         objArray[size++] = value;
     }
 
@@ -51,11 +57,8 @@ public class GenericArray<T> extends AbstractArray<T>{
 
     @Override
     public String toString() {
-        return "GenericArray{" +
-                "objArray=" + Arrays.toString(Arrays.copyOf(objArray,size)) +
-                ", size=" + size +
-                ", capacity=" + capacity +
-                '}';
+        return new StringBuilder("Generic array ")
+                .append(Arrays.toString(Arrays.copyOf(objArray, size))).toString();
     }
 
     @Override

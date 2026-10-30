@@ -1,11 +1,10 @@
-package com.academy.course.service.averageService.averageServiceImpl;
+package com.academy.course.service.averageService.impl;
 
 import com.academy.course.entity.AbstractArray;
 import com.academy.course.service.averageService.AverageService;
 import com.academy.course.service.sumService.SumService;
 
 import java.util.OptionalDouble;
-import java.util.OptionalInt;
 
 public class AverageServiceImpl implements AverageService {
 

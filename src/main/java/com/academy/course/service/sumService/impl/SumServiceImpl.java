@@ -1,4 +1,4 @@
-package com.academy.course.service.sumService.sumServiceImpl;
+package com.academy.course.service.sumService.impl;
 
 import com.academy.course.entity.AbstractArray;
 import com.academy.course.service.sumService.SumService;

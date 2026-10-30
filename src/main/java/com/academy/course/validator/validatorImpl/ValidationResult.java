@@ -21,8 +21,8 @@ public class ValidationResult {
 
     @Override
     public String toString() {
-        return "ValidationResult{" +
-                "errors=" + errors +
-                '}';
+        return new StringBuilder()
+                .append(getErrors())
+                .toString();
     }
 }
