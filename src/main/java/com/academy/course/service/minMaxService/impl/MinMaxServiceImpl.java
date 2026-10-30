@@ -1,13 +1,14 @@
 package com.academy.course.service.minMaxService.impl;
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.ArrayException;
 import com.academy.course.service.minMaxService.MinMaxService;
 
 import java.util.OptionalInt;
 
 public class MinMaxServiceImpl implements MinMaxService {
     @Override
-    public OptionalInt getMin(AbstractArray<Integer> array) {
+    public OptionalInt getMin(AbstractArray<Integer> array) throws ArrayException {
         if (array == null || array.isEmpty()){
             return OptionalInt.empty();
         }
@@ -22,7 +23,7 @@ public class MinMaxServiceImpl implements MinMaxService {
     }
 
     @Override
-    public OptionalInt getMax(AbstractArray<Integer> array) {
+    public OptionalInt getMax(AbstractArray<Integer> array) throws ArrayException {
         if (array == null || array.isEmpty()){
             return OptionalInt.empty();
         }

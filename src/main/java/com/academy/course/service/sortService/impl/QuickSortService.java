@@ -1,19 +1,20 @@
 package com.academy.course.service.sortService.impl;
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.ArrayException;
 import com.academy.course.service.sortService.SortService;
 
 public class QuickSortService implements SortService {
 
     @Override
-    public void sortIntArray(AbstractArray<Integer> arrayToSort) {
+    public void sortIntArray(AbstractArray<Integer> arrayToSort) throws ArrayException {
         int n = arrayToSort.getSize();
         if (n < 2) return;
         quickSort(arrayToSort, 0, n - 1);
     }
 
 
-    private void quickSort(AbstractArray<Integer> a, int low, int high) {
+    private void quickSort(AbstractArray<Integer> a, int low, int high) throws ArrayException {
         if (low >= high) return;
         int pivotIndex = partition(a, low, high);
         quickSort(a, low, pivotIndex - 1);
@@ -21,7 +22,7 @@ public class QuickSortService implements SortService {
     }
 
 
-    private int partition(AbstractArray<Integer> a, int low, int high) {
+    private int partition(AbstractArray<Integer> a, int low, int high) throws ArrayException {
         Integer pivot = a.get(high);
         int i = low - 1;
 
@@ -35,7 +36,7 @@ public class QuickSortService implements SortService {
         return i + 1;
     }
 
-    private static void swap(AbstractArray<Integer> a, int i, int j) {
+    private static void swap(AbstractArray<Integer> a, int i, int j) throws ArrayException {
         Integer tmp = a.get(i);
         a.set(i, a.get(j));
         a.set(j, tmp);

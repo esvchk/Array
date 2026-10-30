@@ -1,5 +1,6 @@
 package com.academy.course.entity;
 
+import com.academy.course.exception.ArrayException;
 import com.academy.course.utils.Constants;
 
 import java.util.Arrays;
@@ -21,21 +22,21 @@ public class GenericArray<T> extends AbstractArray<T> {
     }
 
     @Override
-    public T get(int index) {
+    public T get(int index) throws ArrayException {
         if (index < 0 || index >= size) {
-            throw new WrongIndexException("index=" + index + ",size=" + size);
+            throw new ArrayException("index=" + index + ",size=" + size);
         }
         return (T) objArray[index];
     }
 
 
     @Override
-    public void add(T value) {
+    public void add(T value) throws ArrayException {
         if (size == capacity){
             grow();
         }
         if (value == null) {
-            throw new EmptyArrayException("Empty array " + value);
+            throw new ArrayException("Empty array " + value);
         }
         objArray[size++] = value;
     }
@@ -46,9 +47,9 @@ public class GenericArray<T> extends AbstractArray<T> {
     }
 
     @Override
-    public void set(int index, T value) {
+    public void set(int index, T value) throws ArrayException {
         if (index < 0 || index >= size) {
-            throw new WrongIndexException("index=" + index + ",size=" + size);
+            throw new ArrayException("index=" + index + ",size=" + size);
         }
         objArray[index] = value;
     }

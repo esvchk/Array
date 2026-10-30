@@ -1,6 +1,7 @@
 package com.academy.course.service.averageService.impl;
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.ArrayException;
 import com.academy.course.service.averageService.AverageService;
 import com.academy.course.service.sumService.SumService;
 
@@ -16,7 +17,7 @@ public class AverageServiceImpl implements AverageService {
 
 
     @Override
-    public OptionalDouble getAverage(AbstractArray<Integer> array) {
+    public OptionalDouble getAverage(AbstractArray<Integer> array) throws ArrayException {
         if (array == null || array.isEmpty()) {
             return OptionalDouble.empty();
         }

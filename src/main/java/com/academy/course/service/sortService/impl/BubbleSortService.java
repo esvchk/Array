@@ -1,12 +1,13 @@
 package com.academy.course.service.sortService.impl;
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.ArrayException;
 import com.academy.course.service.sortService.SortService;
 
 public class BubbleSortService implements SortService {
 
     @Override
-    public void sortIntArray(AbstractArray<Integer> arrayToSort) {
+    public void sortIntArray(AbstractArray<Integer> arrayToSort) throws ArrayException {
         for (int i = 0; i < arrayToSort.getSize() - 1; i++) {
             boolean swapped = false;
             for (int j = 0; j < arrayToSort.getSize() - 1 - i; j++) {
@@ -19,7 +20,7 @@ public class BubbleSortService implements SortService {
         }
     }
 
-    private void swap(AbstractArray<Integer> a, int i, int j) {
+    private void swap(AbstractArray<Integer> a, int i, int j) throws ArrayException {
         Integer tmp = a.get(i);
         a.set(i, a.get(j));
         a.set(j, tmp);

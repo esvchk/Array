@@ -2,6 +2,8 @@ package com.academy.course;
 
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.ArrayException;
+import com.academy.course.exception.FileReadException;
 import com.academy.course.factory.AbstractArrayFactory;
 import com.academy.course.factory.GenericArrayFactory;
 import com.academy.course.parser.IntParser;
@@ -28,7 +30,7 @@ import java.util.List;
 
 
 public class App {
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws ArrayException, FileReadException {
 
         ArrayFileReader fileReader = new ArrayFileReaderImpl();
         CharRefactor refactor = new CharRefactor();
@@ -63,7 +65,7 @@ public class App {
                                                          CommonValidator validator,
                                                          Refactor refactor,
                                                          IntParser parser,
-                                                         AbstractArrayFactory<Integer> factory){
+                                                         AbstractArrayFactory<Integer> factory) throws ArrayException, FileReadException {
         String path = "files/data.txt";
         List<AbstractArray<Integer>> list = new ArrayList<>();
         for (String fileLine : reader.read(Path.of(path))){
