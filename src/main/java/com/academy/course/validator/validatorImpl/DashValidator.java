@@ -10,10 +10,11 @@ public class DashValidator implements Validator {
 
     private final Logger logger = LogManager.getLogger(DashValidator.class);
     @Override
-    public void validate(String line, ValidationResult result) {
+    public boolean validate(String line, ValidationResult result) {
         if (line.matches(DASH_IS_NOT_BETWEEN_NUMBERS)) {
             logger.warn("Wrong place for dash in line{}",line);
             result.addError("Dash in a wrong place in line " + line);
         }
+        return result.isValid();
     }
 }

@@ -10,7 +10,7 @@ public class NotEmptyValidator implements Validator {
     private final Logger logger = LogManager.getLogger(NotEmptyValidator.class);
 
     @Override
-    public void validate(String line, ValidationResult result) {
+    public boolean validate(String line, ValidationResult result) {
         if (line == null) {
             logger.warn("Line is null");
             result.addError("Null line");
@@ -19,5 +19,6 @@ public class NotEmptyValidator implements Validator {
             logger.warn("Empty line");
             result.addError("Empty line");
         }
+        return result.isValid();
     }
 }

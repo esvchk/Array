@@ -11,10 +11,11 @@ public class CharsValidator implements Validator {
     private final Logger logger = LogManager.getLogger(CharsValidator.class);
 
     @Override
-    public void validate(String line, ValidationResult result) {
+    public boolean validate(String line, ValidationResult result) {
         if (!line.matches(ALLOWED_CHARS)) {
             logger.warn("Line {} contains banned chars",line);
             result.addError("Line contains banned chars");
         }
+        return result.isValid();
     }
 }
