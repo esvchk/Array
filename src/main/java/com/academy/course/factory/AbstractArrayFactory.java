@@ -1,13 +1,14 @@
 package com.academy.course.factory;
 
 import com.academy.course.entity.AbstractArray;
+import com.academy.course.exception.ArrayException;
 import com.academy.course.utils.Constants;
 
 public abstract class AbstractArrayFactory<T> {
 
-    public abstract AbstractArray<T> create(int capacity);
+    public abstract AbstractArray<T> create(int capacity) throws ArrayException;
 
-    public AbstractArray<T> fill (T[] values){
+    public AbstractArray<T> fill (T[] values) throws ArrayException {
         AbstractArray<T> arr = create(Math.max(values.length, Constants.DEFAULT_ARRAY_CAPACITY));
         for (T t : values) arr.add(t);
         return arr;

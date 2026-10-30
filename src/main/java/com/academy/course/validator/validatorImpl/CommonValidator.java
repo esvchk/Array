@@ -1,10 +1,9 @@
 package com.academy.course.validator.validatorImpl;
 
+import com.academy.course.exception.ArrayException;
 import com.academy.course.validator.Validator;
 import com.academy.course.validator.charRefactor.Refactor;
-import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommonValidator {
@@ -19,7 +18,7 @@ public class CommonValidator {
         this.newLineValidators = newLineValidators;
     }
 
-    public ValidationResult validationResult(String line){
+    public ValidationResult validationResult(String line) throws ArrayException {
 
         ValidationResult validationResult = new ValidationResult();
 

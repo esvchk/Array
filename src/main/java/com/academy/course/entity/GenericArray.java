@@ -1,7 +1,5 @@
 package com.academy.course.entity;
 
-import com.academy.course.exception.EmptyArrayException;
-import com.academy.course.exception.WrongIndexException;
 import com.academy.course.utils.Constants;
 
 import java.util.Arrays;

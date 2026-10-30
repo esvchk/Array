@@ -2,7 +2,6 @@ package com.academy.course;
 
 
 import com.academy.course.entity.AbstractArray;
-import com.academy.course.exception.InvalidInputException;
 import com.academy.course.factory.AbstractArrayFactory;
 import com.academy.course.factory.GenericArrayFactory;
 import com.academy.course.parser.IntParser;
@@ -20,7 +19,7 @@ import com.academy.course.service.sumService.SumService;
 import com.academy.course.service.sumService.impl.SumServiceImpl;
 import com.academy.course.validator.Validator;
 import com.academy.course.validator.charRefactor.Refactor;
-import com.academy.course.validator.charRefactor.refactorImpl.CharRefactor;
+import com.academy.course.validator.charRefactor.impl.CharRefactor;
 import com.academy.course.validator.validatorImpl.*;
 
 import java.nio.file.Path;

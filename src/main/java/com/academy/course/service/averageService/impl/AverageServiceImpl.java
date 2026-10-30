@@ -17,7 +17,9 @@ public class AverageServiceImpl implements AverageService {
 
     @Override
     public OptionalDouble getAverage(AbstractArray<Integer> array) {
-        if (array == null || array.isEmpty()) return OptionalDouble.empty();
+        if (array == null || array.isEmpty()) {
+            return OptionalDouble.empty();
+        }
         int sum = sumService.getSum(array).getAsInt();
         double result = (double) sum / array.getSize();
         return OptionalDouble.of(result);
