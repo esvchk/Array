@@ -9,6 +9,7 @@ public abstract class AbstractArray<T> {
     public abstract T get(int index) throws ArrayException;
     public abstract void add(T t) throws ArrayException;
     public abstract void set(int index,T value) throws ArrayException;
+    public abstract boolean checkIndex(int index) throws ArrayException;
 
     public int getSize() {
         return size;

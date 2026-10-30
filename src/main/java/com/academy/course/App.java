@@ -23,6 +23,9 @@ import com.academy.course.validator.Validator;
 import com.academy.course.validator.charRefactor.Refactor;
 import com.academy.course.validator.charRefactor.impl.CharRefactor;
 import com.academy.course.validator.validatorImpl.*;
+import com.sun.tools.javac.Main;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -30,8 +33,9 @@ import java.util.List;
 
 
 public class App {
-    public static void main( String[] args ) throws ArrayException, FileReadException {
+    private static final Logger logger = LogManager.getLogger(App.class);
 
+    public static void main( String[] args ) throws ArrayException, FileReadException {
         ArrayFileReader fileReader = new ArrayFileReaderImpl();
         CharRefactor refactor = new CharRefactor();
         IntParser intParser = new IntParserImpl();

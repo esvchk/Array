@@ -2,11 +2,15 @@ package com.academy.course.entity;
 
 import com.academy.course.exception.ArrayException;
 import com.academy.course.utils.Constants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class GenericArray<T> extends AbstractArray<T> {
+
+    private final Logger logger = LogManager.getLogger(GenericArray.class);
 
     private Object[] objArray;
     private int capacity;
@@ -23,9 +27,7 @@ public class GenericArray<T> extends AbstractArray<T> {
 
     @Override
     public T get(int index) throws ArrayException {
-        if (index < 0 || index >= size) {
-            throw new ArrayException("index=" + index + ",size=" + size);
-        }
+        checkIndex(index);
         return (T) objArray[index];
     }
 
@@ -33,9 +35,10 @@ public class GenericArray<T> extends AbstractArray<T> {
     @Override
     public void add(T value) throws ArrayException {
         if (value == null) {
+            logger.warn("Cannot create array with value {}", value);
             throw new ArrayException("Empty array " + value);
         }
-        if (size == capacity){
+        if (size == capacity) {
             grow();
         }
         objArray[size++] = value;
@@ -43,15 +46,24 @@ public class GenericArray<T> extends AbstractArray<T> {
 
     private void grow() {
         capacity = capacity * 2;
+        logger.info("Expanding array");
         objArray = Arrays.copyOf(objArray, capacity);
     }
 
     @Override
     public void set(int index, T value) throws ArrayException {
-        if (index < 0 || index >= size) {
-            throw new ArrayException("index=" + index + ",size=" + size);
-        }
+        checkIndex(index);
         objArray[index] = value;
+    }
+
+    @Override
+    public boolean checkIndex(int index) throws ArrayException {
+        if (index < 0 || index >= size) {
+            logger.warn("Wrong index{}", index);
+            throw new ArrayException("Wrong index" + index);
+        } else {
+            return true;
+        }
     }
 
     @Override

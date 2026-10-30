@@ -1,7 +1,10 @@
 package com.academy.course.reader.arrayReaderImpl;
 
 import com.academy.course.exception.FileReadException;
+import com.academy.course.parser.parserImpl.IntParserImpl;
 import com.academy.course.reader.ArrayFileReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,12 +20,14 @@ import java.util.Scanner;
 
 public class ArrayFileReaderImpl implements ArrayFileReader {
 
+    private final Logger logger = LogManager.getLogger(ArrayFileReaderImpl.class);
 
     public List<String> read(Path path) throws FileReadException {
         try {
             Charset charset = StandardCharsets.UTF_8;
             return Files.readAllLines(path,charset);
         } catch (IOException e) {
+            logger.warn("Cannot read a file with path{}",path);
             throw new FileReadException("Cannot read file " + path, e);
         }
     }

@@ -2,9 +2,14 @@ package com.academy.course.service.sortService.impl;
 
 import com.academy.course.entity.AbstractArray;
 import com.academy.course.exception.ArrayException;
+import com.academy.course.service.minMaxService.impl.MinMaxServiceImpl;
 import com.academy.course.service.sortService.SortService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BubbleSortService implements SortService {
+
+    private final Logger logger = LogManager.getLogger(BubbleSortService.class);
 
     @Override
     public void sortIntArray(AbstractArray<Integer> arrayToSort) throws ArrayException {
