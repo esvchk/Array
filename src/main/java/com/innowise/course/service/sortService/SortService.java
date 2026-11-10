@@ -5,5 +5,4 @@ import com.innowise.course.exception.ArrayException;
 
 public interface SortService {
     void sortIntArray(AbstractArray<Number> arrayToSort) throws ArrayException;
-
 }

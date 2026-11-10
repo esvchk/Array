@@ -1,4 +1,6 @@
 package com.innowise.course.specification;
 
-public class Specification {
+@FunctionalInterface
+public interface Specification<T> {
+    boolean isSuitable(T item);
 }
