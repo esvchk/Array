@@ -6,5 +6,5 @@ import com.innowise.course.exception.ArrayException;
 import java.util.OptionalDouble;
 
 public interface AverageService {
-    OptionalDouble getAverage(AbstractArray<Number> array) throws ArrayException;
+    OptionalDouble getAverage(AbstractArray<Integer> array) throws ArrayException;
 }

@@ -7,5 +7,5 @@ import com.innowise.course.exception.ArrayException;
 import java.util.OptionalInt;
 
 public interface SumService {
-    OptionalInt getSum(AbstractArray<Number> array) throws ArrayException;
+    OptionalInt getSum(AbstractArray<Integer> array) throws ArrayException;
 }

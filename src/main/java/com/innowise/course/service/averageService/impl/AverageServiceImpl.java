@@ -19,7 +19,7 @@ public class AverageServiceImpl implements AverageService {
 
 
     @Override
-    public OptionalDouble getAverage(AbstractArray<Number> array) throws ArrayException {
+    public OptionalDouble getAverage(AbstractArray<Integer> array) throws ArrayException {
         if (array == null || array.isEmpty()) {
             return OptionalDouble.empty();
         }

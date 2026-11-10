@@ -10,29 +10,29 @@ public class MinMaxServiceImpl implements MinMaxService {
 
 
     @Override
-    public OptionalInt getMin(AbstractArray<Number> array) throws ArrayException {
+    public OptionalInt getMin(AbstractArray<Integer> array) throws ArrayException {
         if (array == null || array.isEmpty()){
             return OptionalInt.empty();
         }
 
-        int min = array.get(0).intValue();
+        int min = array.get(0);
         for (int i = 1; i < array.getSize(); i++) {
-            if (array.get(i).intValue() < min) {
-                min = array.get(i).intValue();
+            if (array.get(i) < min) {
+                min = array.get(i);
             }
         }
         return OptionalInt.of(min);
     }
 
     @Override
-    public OptionalInt getMax(AbstractArray<Number> array) throws ArrayException {
+    public OptionalInt getMax(AbstractArray<Integer> array) throws ArrayException {
         if (array == null || array.isEmpty()){
             return OptionalInt.empty();
         }
-        int max = array.get(0).intValue();
+        int max = array.get(0);
         for (int i = 1; i < array.getSize(); i++) {
-            if (array.get(i).intValue() > max) {
-                max = array.get(i).intValue();
+            if (array.get(i) > max) {
+                max = array.get(i);
             }
         }
         return OptionalInt.of(max);

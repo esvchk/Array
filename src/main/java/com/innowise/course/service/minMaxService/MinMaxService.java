@@ -6,6 +6,6 @@ import com.innowise.course.exception.ArrayException;
 import java.util.OptionalInt;
 
 public interface MinMaxService {
-    OptionalInt getMin(AbstractArray<Number> array) throws ArrayException;
-    OptionalInt getMax(AbstractArray<Number> array) throws ArrayException;
+    OptionalInt getMin(AbstractArray<Integer> array) throws ArrayException;
+    OptionalInt getMax(AbstractArray<Integer> array) throws ArrayException;
 }

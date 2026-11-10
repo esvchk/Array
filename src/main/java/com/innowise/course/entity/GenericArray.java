@@ -8,12 +8,13 @@ import org.apache.logging.log4j.Logger;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class GenericArray<T> extends AbstractArray<T> {
+public class GenericArray extends AbstractArray<Number> {
 
     private final Logger logger = LogManager.getLogger(GenericArray.class);
 
     private Number[] numberArray;
     private int capacity;
+    private Long id;
 
 
     public GenericArray() {
@@ -26,14 +27,14 @@ public class GenericArray<T> extends AbstractArray<T> {
     }
 
     @Override
-    public T get(int index) throws ArrayException {
+    public Number get(int index) throws ArrayException {
         checkIndex(index);
-        return (T)numberArray[index];
+        return numberArray[index];
     }
 
 
     @Override
-    public void add(T value) throws ArrayException {
+    public void add(Number value) throws ArrayException {
         if (value == null) {
             logger.error("Cannot create array with value {}", value);
             throw new ArrayException("Empty array " + value);
@@ -41,7 +42,7 @@ public class GenericArray<T> extends AbstractArray<T> {
         if (size == capacity) {
             grow();
         }
-        numberArray[size++] = (Number) value;
+        numberArray[size++] = value;
     }
 
     private void grow() {
@@ -51,9 +52,9 @@ public class GenericArray<T> extends AbstractArray<T> {
     }
 
     @Override
-    public void set(int index, T value) throws ArrayException {
+    public void set(int index, Number value) throws ArrayException {
         checkIndex(index);
-        numberArray[index] = (Number) value;
+        numberArray[index] = value;
     }
 
     @Override
@@ -75,7 +76,7 @@ public class GenericArray<T> extends AbstractArray<T> {
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
-        GenericArray<?> that = (GenericArray<?>) object;
+        GenericArray that = (GenericArray) object;
         return capacity == that.capacity && Objects.deepEquals(numberArray, that.numberArray);
     }
 

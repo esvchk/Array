@@ -37,7 +37,7 @@ public class App {
         IntParser intParser = new IntParserImpl();
         List<Validator> sourceValidators = new ArrayList<>();
         List<Validator> newLineValidators = new ArrayList<>();
-        AbstractArrayFactory<Number> factory = new GenericArrayFactory<>();
+        AbstractArrayFactory<Number> factory = new GenericArrayFactory();
         CommonValidator validator = new CommonValidator(refactor,sourceValidators,newLineValidators);
         sourceValidators.add(new NotEmptyValidator());
         sourceValidators.add(new CharsValidator());
@@ -79,10 +79,5 @@ public class App {
         return list;
     }
 
-    public static void printArrays(List<AbstractArray<Number>> arrays){
-        for (AbstractArray<Number> array : arrays){
-            System.out.println(array);
-        }
-    }
 
 }
