@@ -1,7 +1,6 @@
 package com.innowise.course.warehouse;
 
 import com.innowise.course.entity.AbstractArray;
-import com.innowise.course.entity.GenericArray;
 import com.innowise.course.exception.ArrayException;
 import com.innowise.course.service.averageService.AverageService;
 import com.innowise.course.service.averageService.impl.AverageServiceImpl;
