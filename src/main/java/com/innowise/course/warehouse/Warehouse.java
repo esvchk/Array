@@ -21,6 +21,10 @@ public class Warehouse {
     private final MinMaxService minMaxService = new MinMaxServiceImpl();
     private final Map<Long,ArrayInfo> info = new HashMap<>();
 
+
+    private Warehouse(){}
+
+
     public static Warehouse getInstance() {
         if (instance == null) {
             instance = new Warehouse();
@@ -28,7 +32,6 @@ public class Warehouse {
         return instance;
     }
 
-    private Warehouse(){}
 
     public void refreshData(AbstractArray<Number> abstractArray) throws ArrayException {
         OptionalInt total = sumService.getSum(abstractArray);
@@ -38,6 +41,11 @@ public class Warehouse {
         info.put(abstractArray.getId(),
                 new ArrayInfo(min.getAsInt(), max.getAsInt(), average.getAsDouble(), total.getAsInt()));
     }
+
+    public void removeData(AbstractArray<Number> abstractArray){
+        info.remove(abstractArray.getId());
+    }
+
 
     public Map<Long, ArrayInfo> getInfo() {
         return info;

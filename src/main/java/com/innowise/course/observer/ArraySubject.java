@@ -1,6 +1,7 @@
 package com.innowise.course.observer;
 
 import com.innowise.course.entity.GenericArray;
+import com.innowise.course.exception.ArrayException;
 
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ArraySubject  {
         }
     }
 
-    public void notifyOnChanged(GenericArray array) {
+    public void notifyOnChanged(GenericArray array) throws ArrayException {
             for (ArrayObserver o : new ArrayList<>(observers)){
                 o.onArrayChanged(array);
             }
