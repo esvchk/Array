@@ -50,4 +50,11 @@ public class Warehouse {
     public Map<Long, ArrayInfo> getInfo() {
         return info;
     }
+
+    @Override
+    public String toString() {
+        return "Warehouse{" +
+                "info=" + info +
+                '}';
+    }
 }

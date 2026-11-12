@@ -20,7 +20,7 @@ public class ArrayRepositoryImpl implements ArrayRepository {
 
 
     private final Logger logger = LogManager.getLogger(ArrayRepositoryImpl.class);
-    private final Map<Long,AbstractArray<Number>> storage = new HashMap<>();
+    private final Map<Long, AbstractArray<Number>> storage = new HashMap<>();
     private final ArrayObserver observer;
     private final AtomicLong idGenerator = new AtomicLong(1);
 
@@ -36,23 +36,22 @@ public class ArrayRepositoryImpl implements ArrayRepository {
         if (abstractArray.getId() == null) {
             abstractArray.setId(idGenerator.getAndIncrement());
         } else if (storage.containsKey(abstractArray.getId())) {
-            logger.error("Duplicate Id {}",abstractArray.getId());
+            logger.error("Duplicate Id {}", abstractArray.getId());
             throw new ArrayException("Element with the same id already exists");
-        } else {
-            ((GenericArray)abstractArray).addObserver(observer);
-            storage.put(abstractArray.getId(), abstractArray);
-            Warehouse.getInstance().refreshData(abstractArray);
         }
+        ((GenericArray) abstractArray).addObserver(observer);
+        storage.put(abstractArray.getId(), abstractArray);
+        Warehouse.getInstance().refreshData(abstractArray);
     }
 
     @Override
     public void delete(Long id) throws ArrayException {
         if (id != null && storage.containsKey(id)) {
-            ((GenericArray)storage.get(id)).removeObserver(observer);
+            ((GenericArray) storage.get(id)).removeObserver(observer);
             Warehouse.getInstance().removeData(storage.get(id));
             storage.remove(id);
         } else {
-            logger.error("Id {} not found",id);
+            logger.error("Id {} not found", id);
             throw new ArrayException("Object for removal not found");
         }
     }
@@ -60,7 +59,7 @@ public class ArrayRepositoryImpl implements ArrayRepository {
     @Override
     public List<AbstractArray<Number>> findGroupBySpec(Specification<AbstractArray<Number>> specification) throws ArrayException {
         List<AbstractArray<Number>> arrays = new ArrayList<>();
-        for (AbstractArray<Number> array : storage.values()){
+        for (AbstractArray<Number> array : storage.values()) {
             if (specification.isSuitable(array)) {
                 arrays.add(array);
             }
