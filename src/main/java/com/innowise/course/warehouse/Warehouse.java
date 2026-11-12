@@ -36,7 +36,7 @@ public class Warehouse {
         OptionalInt max = minMaxService.getMax(abstractArray);
         OptionalInt min = minMaxService.getMin(abstractArray);
         info.put(abstractArray.getId(),
-                new ArrayInfo(average.getAsDouble(),total.getAsInt(),max.getAsInt(),min.getAsInt()));
+                new ArrayInfo(min.getAsInt(), max.getAsInt(), average.getAsDouble(), total.getAsInt()));
     }
 
     public Map<Long, ArrayInfo> getInfo() {
